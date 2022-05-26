@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <link rel="stylesheet" href="{% static "css/find_panel.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Slider.css" %}" />
+    
+
+    <title>MyRestApi</title>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <a href="{% url 'GameInfo'%}"><img  src="{% static "images/Ikon.png"%}"/></a>
+        </div>
+        <div>
+            //Контакты//
+        </div>
+        <div>
+            //О сайте//
+        </div>
+        <div>
+            //Войти//
+        </div>
+    </div>
+
+    
+    <div class="main">
+        <div class="main_up">
+            <div class="panel">
+                <strong>Назавание:</strong> {{name}}<br>
+                <strong> Разработчик:</strong> {{developers}}<br>
+                <strong>Издатель:</strong> {{publishers}}<br>
+                <strong>Дата Выхода:</strong> {{release_date}}<br>
+                <strong>Категории:</strong> {{categories}}<br>
+                <strong>Платформы:</strong> {{platforms}}<br>
+                <strong>Жанры:</strong> {{genres}}<br>
+                <strong>Рейтинг:</strong> {{score}}<br>
+            </div>
+            <div class="slider_block">
+                <div class="slider">
+                    <div class="item">
+                        <img src='{{img}}' alt="Первый слайд">
+                        <div class="slideText"></div>
+                    </div>
+                
+                    <div class="item">
+                        <video src='{{video}}' controls alt="Второй слайд"></video> 
+                        <div class="slideText"></div>
+                    </div>
+                
+                    <div class="item">
+                        <video src='{{video1}}' controls alt="Третий слайд"></video> 
+                        <div class="slideText"></div>
+                    </div>        
+                    <a class="prev" onclick="minusSlide()">&#10094;</a>
+                    <a class="next" onclick="plusSlide()">&#10095;</a>
+                </div>
+                
+                <div class="slider-dots">
+                    <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
+                    <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
+                    <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
+                </div>
+            </div>
+        </div>
+        <div class="main_down">
+            <div class="h"><strong>Об игре</strong></div>
+            <div class="info">
+              {{info|safe}}
+            </div>
+        </div>
+    </div>
+    <div class="footer"><p>Выберете Name или его Id
+        {{id}}
+    </p><br></div>
+
+
+    <div  id="find_panel"  >
+        <img mouseover="SearchEnter()" mouseout="SearchLeave()" onclick="Search()" src="{% static "images/search.png" %}">
+            <form style="display:none;" method="POST">
+                {% csrf_token %}
+                <table>
+                    {{ form }}
+                </table>
+                <input type="submit" value="Send" >
+            </form>
+    </div>
+    <div class="up">
+        <img onclick="Up()" id="up_arrow" src="{% static "images/up.png" %}" alt="Поднять в верх">
+        
+    </div>
+    <script src="{% static "js/Script.js" %}"></script>
+    <script src="{% static "js/find_panel.js" %}"></script>
+</body>
+</html>

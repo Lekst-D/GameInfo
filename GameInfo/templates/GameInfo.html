@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <link rel="stylesheet" href="{% static "css/find_panel.css" %}" />
+    <link rel="stylesheet" href="{% static "css/Slider.css" %}" />
+    
+
+    <title>MyRestApi</title>
+</head>
+<body>
+    <div class="header">
+        <div>
+            <a href="{% url 'GameInfo'%}"><img  src="{% static "images/Ikon.png"%}"/></a>
+        </div>
+        <div>
+            //Контакты//
+        </div>
+        <div>
+            //О сайте//
+        </div>
+        <div>
+            //Войти//
+        </div>
+    </div>
+
+    
+    <div class="main">
+        <p style="color:red; font-size: 24px;">{{text}}</p>
+        <form action="{% url 'index'%}" method="POST">{% csrf_token %}
+        <p><select style="width: 100%; height:100%;" size="23" multiple name="Id">
+         <option disabled>Выберите игру</option>
+        {{List|safe}}
+        <option value='367520'>Hollow knight</option>
+        </select></p>
+        <p><input type="submit" value="Отправить"></p>
+       </form>
+       <a href="{% url 'index'%}">asfd</a>
+    </div>
+    <div class="footer"><p>Выберете Name или его Id</p><br></div>
+
+
+   
+    <div class="up">
+        <img onclick="Up()" id="up_arrow" src="{% static "images/up.png" %}" alt="Поднять в верх">
+    </div>
+    <script src="{% static "js/Script.js" %}"></script>
+    <script src="{% static "js/find_panel.js" %}"></script>
+</body>
+</html>

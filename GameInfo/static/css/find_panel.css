@@ -1,0 +1,22 @@
+#find_panel{
+    width:auto;
+    height: auto;
+    background-color: #C4C4C4;
+    margin-left: auto;
+    margin-right: auto;
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items:center;
+    font-size:25px;
+    position: fixed;
+    z-index: 9999; /*отображаем поверх всех элементов*/
+    bottom: 2%; /*положение снизу*/
+    left: 2%;
+    cursor:pointer;
+}
+
+#find_panel img {
+    display: block;
+    width: 35px;
+}
